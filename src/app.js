@@ -39,8 +39,8 @@ app.post('/users', async (req, res) => {
 });
 
 // Sincronizar com o Render e arrancar o servidor
-sequelize.sync().then(() => {
-  console.log('Tabela criada/sincronizada com sucesso no PostgreSQL do Render!');
+sequelize.sync({ alter: true }).then(() => {
+  console.log('Tabela sincronizada sem timestamps no PostgreSQL!');
   app.listen(PORT, () => {
     console.log(`Servidor a correr na porta ${PORT}`);
   });
